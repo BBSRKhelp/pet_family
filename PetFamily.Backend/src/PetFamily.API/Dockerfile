@@ -2,15 +2,14 @@
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["PetFamily.Backend/src/PetFamily.API/PetFamily.API.csproj", "src/PetFamily.API/"]
-COPY ["PetFamily.Backend/src/PetFamily.Application/PetFamily.Application.csproj", "src/PetFamily.Application/"]
-COPY ["PetFamily.Backend/src/PetFamily.Domain/PetFamily.Domain.csproj", "src/PetFamily.Domain/"]
-COPY ["PetFamily.Backend/src/PetFamily.Infrastructure/PetFamily.Infrastructure.csproj", "src/PetFamily.Infrastructure/"]
+COPY ["src/PetFamily.API/PetFamily.API.csproj", "src/PetFamily.API/"]
+COPY ["src/PetFamily.Application/PetFamily.Application.csproj", "src/PetFamily.Application/"]
+COPY ["src/PetFamily.Domain/PetFamily.Domain.csproj", "src/PetFamily.Domain/"]
+COPY ["src/PetFamily.Infrastructure/PetFamily.Infrastructure.csproj", "src/PetFamily.Infrastructure/"]
 RUN dotnet restore "src/PetFamily.API/PetFamily.API.csproj"
 COPY . .
 WORKDIR "/src/src/PetFamily.API"
