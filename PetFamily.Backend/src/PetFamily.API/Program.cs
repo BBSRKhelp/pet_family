@@ -19,15 +19,17 @@ app.UseExceptionMiddleware();
 
 app.UseSerilogRequestLogging();
 
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+if (app.Environment.IsEnvironment("Docker"))
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
-    c.RoutePrefix = "swagger";
-});
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
     await app.ApplyMigration();
 }
 

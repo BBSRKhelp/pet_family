@@ -8,7 +8,7 @@ using PetFamily.Application.SpeciesAggregate.Queries.GetBreedsByIdSpecies;
 namespace PetFamily.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class BreedsController : ControllerBase
 {
     [HttpGet("{speciesId:guid}/breeds")]

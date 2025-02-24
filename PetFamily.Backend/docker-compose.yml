@@ -10,6 +10,8 @@
       - postgres
       - minio
       - seq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
     restart: always
   
   postgres:

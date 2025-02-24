@@ -13,7 +13,7 @@ using PetFamily.Application.SpeciesAggregate.Queries.GetFilteredSpeciesWithPagin
 namespace PetFamily.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class SpeciesController : ControllerBase
 {
     [HttpPost]

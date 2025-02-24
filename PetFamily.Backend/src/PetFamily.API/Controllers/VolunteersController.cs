@@ -24,7 +24,7 @@ using PetFamily.Application.VolunteerAggregate.Queries.Volunteer.GetVolunteerByI
 namespace PetFamily.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class VolunteersController : ControllerBase
 {
     [HttpPost]

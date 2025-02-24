@@ -9,7 +9,7 @@ using PetFamily.Application.VolunteerAggregate.Queries.Pet.GetPetById;
 namespace PetFamily.API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/ [controller]")]
 public class PetsController : ControllerBase
 {
     [HttpGet]
@@ -19,7 +19,7 @@ public class PetsController : ControllerBase
         CancellationToken cancellationToken = default)
     {
         var query = request.ToQuery();
-        
+
         var result = await handler.HandleAsync(query, cancellationToken);
 
         return result.ToResponse();
@@ -32,7 +32,7 @@ public class PetsController : ControllerBase
         CancellationToken cancellationToken = default)
     {
         var query = new GetPetByIdQuery(id);
-        
+
         var result = await handler.HandleAsync(query, cancellationToken);
 
         return result.ToResponse();
